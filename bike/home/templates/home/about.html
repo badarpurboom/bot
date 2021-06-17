@@ -1,0 +1,73 @@
+{% extends "home/main.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header Area Start 
+    ====================================================== -->
+    <section class="banner-sec internal-banner" style="background-image:url(http://www.bookamech.com/img/about-banner.jpg)">
+    
+        <!-- Start: slider-overview -->
+        <div class="balck-solid">
+        
+        	<!-- Start: slider -->
+            <div class="container">
+                <div class="banner-mid-text internal-header">
+                
+                    <!-- Start: flexslider -->
+                    <div class="flexslider">
+                        <ul>
+                            <!-- Start: flexslider-one -->
+                            <li>
+                            	<h2>About Us</h2>
+                                <div class="hr-outtr-line"><hr><i class="fa fa-gear"></i><hr></div>
+                            </li>
+                            <!-- End: flexslider-one -->
+                        </ul>
+                    </div>
+                    <!-- End: flexslider -->
+            
+                </div>
+            </div> 
+            <!-- End: slider -->
+            
+        </div>  
+        <!-- End: slider-overview -->
+    </section>
+    <!-- =================================================
+    Header Area End -->
+    
+    
+    <!-- About Our Story  Area Start 
+    ====================================================== -->
+    <section class="about-story-area" id="Welcome">
+    	<div class="container">
+            <div class="row">
+                <h2><span>Discover</span>About Us</h2>
+                <div class="hr-outtr-line"><hr><i class="fa fa-gear"></i><hr></div>
+                
+                <div class="abut-stry-mid">
+					                	                    <!-- Start: Our Story-left -->
+                    <div class="col-md-6 abut-story-left">
+						
+                        <img src="{% static 'images/cms_album_img11_0.jpg' %}" alt="About Us">
+                    </div>
+                    <!-- End: Our Story-left -->
+                    					
+                    <!-- Start: Our Story-right -->
+                    <div class="col-md-6 abut-story-right">
+                        <p>For most people, their bike is one of the most prized possessions. It is your best friend on that long ride, or your companion on your way to work and back. We know how difficult it is to find time, out of your busy schedules, to wait in long queues, and pay exorbitant charges to simply get your bike serviced.</p>
+<p>We, at BookAMech, persevere to make your life easier by providing the services that your bike needs right at your doorsteps, at affordable prices, and in just a few easy steps.</p>
+<p><b>Vision:</b> Bring affordable and quality bike servicing facilities to every doorstep.</p>
+<p><b>Mission:</b> In a world where time is money, our aim is to save the precious time and effort people spend in obtaining bike related services.</p>                    </div>
+                    <!-- End: Our Story-right -->
+                    
+                    
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- =================================================
+    About Our Story  Area End -->
+{% endblock content %}

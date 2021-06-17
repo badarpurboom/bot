@@ -1,0 +1,212 @@
+{% extends "home/main.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+
+    #make-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;z-index:1000;position:absolute;}
+    #make-list li{padding: 10px; background: #eeeeee; border-bottom: #bbb9b9 1px solid;}
+    #make-list li:hover{background:#ffc000;cursor: pointer;}
+    #contact_make{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+    
+    #model-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;z-index:1000;position:absolute;}
+    #model-list li{padding: 10px; background: #eeeeee; border-bottom: #bbb9b9 1px solid;}
+    #model-list li:hover{background:#ffc000;cursor: pointer;}
+    #contact_model{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+    </style>
+         <!-- Header Area Start 
+         ====================================================== -->
+         <section class="banner-sec internal-banner" style="background-image:url(http://www.bookamech.com/img/about-banner.jpg)">
+        
+            <!-- Start: slider-overview -->
+            <div class="balck-solid">
+            
+                <!-- Start: slider -->
+                <div class="container">
+                    <div class="banner-mid-text internal-header">
+                    
+                        <!-- Start: flexslider -->
+                        <div class="flexslider">
+                            <ul>
+                                <!-- Start: flexslider-one -->
+                                <li>
+                                    <h2>Booking</h2>
+                                    <div class="hr-outtr-line"><hr><i class="fa fa-gear"></i><hr></div>
+                                </li>
+                                <!-- End: flexslider-one -->
+                            </ul>
+                        </div>
+                        <!-- End: flexslider -->
+                
+                    </div>
+                </div> 
+                <!-- End: slider -->
+                
+            </div>  
+            <!-- End: slider-overview -->
+        </section>
+        <!-- =================================================
+        Header Area End -->
+        
+        
+        <!-- About Our Story  Area Start 
+        ====================================================== -->
+        <section class="story-area">
+            <div class="container">
+                <div class="row">
+                    <h3><span><div class="book-custome">Fill details below for bike servicing by our experts</div></span>for Just Rs. 349/-</h3>
+                    <div class="hr-outtr-line"><hr><i class="fa fa-gear"></i><hr></div>
+                    
+                    
+                    <!--div class="gap"></div-->
+                
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                    
+                        
+                        <div class="well text-left">
+                                                <br>
+                            <form role="form" method="POST" name="frm" action="http://www.bookamech.com/submit-booking/" onsubmit="return validate();">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name*:</label>
+                                        <input type="text" class="form-control" name="contact_fname" id="contact_fname" onblur="text(this.id);" placeholder="First Name" value="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name*:</label>
+                                        <input type="text" class="form-control" name="contact_lname" id="contact_lname" onblur="text(this.id);" placeholder="Last Name" value="" required="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mobile*:</label>
+                                        <input type="text" placeholder="Mobile" class="form-control" id="contact_mobile" name="contact_mobile" onblur="mobile(this.id);" value="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>E-mail*:</label>
+                                        <input type="email" class="form-control" name="contact_email" id="contact_email" onblur="validEmail(this.id);" placeholder="Enter Email" value="" required="">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="contact_make">Bike Manufacturer*:</label>
+                                        <input type="text" placeholder="Manufacturer" class="form-control" id="contact_make" name="contact_make" onkeyup="bring_make(this.value);" onblur="notnull(this.id);" value="" autocomplete="off" required="">
+                                        <div id="suggesstion-box"></div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="contact_moodel">Bike Model*:</label>
+                                        <input disabled="" type="text" placeholder="Model" class="form-control" id="contact_model" name="contact_model" onkeyup="bring_model(this.value);" onblur="notnull(this.id);" value="" autocomplete="off" required="">
+                                        <div id="suggesstion-box-1"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Bike Number*:</label>
+                                        <input type="text" class="form-control" name="contact_bike_no" id="contact_bike_no" onblur="notnull(this.id);" placeholder="Bike Number" value="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Bike Service Date*:</label>
+                                       
+                                        <input type="text" placeholder="DD-MM-YYYY" name="contact_date" id="contact_date" class="form-control dtdpicker" onchange="bring_time_slot(this.value);" value="" required="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Time Slot for Bike Servicing*:</label>
+                                        <div id="DivTimeSlot">
+                                        <select name="contact_time" id="contact_time" onchange="dropdown(this.id);" class="form-control" required="">
+                                            <option selected="">Select Time</option>
+                                                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Location for Bike Service*:</label>
+                                        <select name="contact_area" id="contact_area" onchange="dropdown(this.id);" class="form-control" required="">
+                                            <option selected="">Select Area</option>
+                                                                                    <option value="1">Aundh</option>
+                                                                                    <option value="16">Balewadi</option>
+                                                                                    <option value="2">Baner</option>
+                                                                                    <option value="15">Bavdhan</option>
+                                                                                    <option value="20">Chinchwad</option>
+                                                                                    <option value="5">Hinjewadi</option>
+                                                                                    <option value="21">Kalewadi</option>
+                                                                                    <option value="6">Kaspate Vasti</option>
+                                                                                    <option value="19">Pashan</option>
+                                                                                    <option value="22">Pimple Gurav</option>
+                                                                                    <option value="23">Pimple Nilakh</option>
+                                                                                    <option value="7">Pimple Saudagar</option>
+                                                                                    <option value="24">Pimpri</option>
+                                                                                    <option value="25">Rahatni</option>
+                                                                                    <option value="26">Sangvi</option>
+                                                                                    <option value="9">Wakad</option>
+                                                                                </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Zip Code:</label>
+                                        <input type="text" size="10" class="form-control" name="contact_zip" id="contact_zip" onblur="numvalid(this.id);" placeholder="Area Code" value="">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Complete Address*:</label>
+                                        <textarea placeholder="Complete Address" rows="4" class="form-control" name="contact_physical" id="contact_physical" onblur="notnull(this.id);" required=""></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Any specific bike repair needed:</label>
+                                        <textarea placeholder="Any specific issues" rows="4" class="form-control" name="contact_issues" id="contact_issues"></textarea>
+                                    </div>
+                                </div>
+                                
+                            
+                                <div class="col-sm-12">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                             
+                             </div>
+                             </form>
+                        </div>
+                    </div><!--/left-->
+                    <!-- <div class="col-md-4 col-sm-4">
+                        <ul class="rslides" id="slider1">
+                              <li><a href="#"><img src="http://www.bookamech.com/img/package01.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="http://www.bookamech.com/img/package02.jpg" alt=""></a></li>
+                        </ul>
+                    </div> --><!--/right-->                
+                </div><!--/row-->
+                
+                
+                
+               
+                
+                    
+                </div>
+            </div>
+        </section>
+        <!-- =================================================
+        About Our Story  Area End -->
+        
+{% endblock content %}
